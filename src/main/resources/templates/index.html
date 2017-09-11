@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.1/css/bootstrap.min.css"/>
-    <title>Title</title>
+    <link href="../static/css/Style.css" th:href="@{/css/Style.css}" rel="stylesheet" />
+    <script src="/webjars/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <title>Home</title>
 </head>
 <body>
+<th:block th:include="fragments/header::header"></th:block>
+
 <div class="container">
     <div class="row">
         <div class="col-lg-offset-3 col-lg-6">
@@ -13,6 +17,7 @@
     </div>
 </div>
 
-<script src="/webjars/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<th:block th:include="fragments/footer::footer"></th:block>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </body>
 </html>

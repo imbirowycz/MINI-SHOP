@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_mini-shop" default="compile.module.mini-shop">
+  <dirname property="module.mini-shop.basedir" file="${ant.file.module_mini-shop}"/>
+  
+  <property name="module.jdk.home.mini-shop" value="${jdk.home.1.8_(3)}"/>
+  <property name="module.jdk.bin.mini-shop" value="${jdk.bin.1.8_(3)}"/>
+  <property name="module.jdk.classpath.mini-shop" value="jdk.classpath.1.8_(3)"/>
+  
+  <property name="compiler.args.mini-shop" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="mini-shop.output.dir" value="${module.mini-shop.basedir}/out/production/MINI-SHOP"/>
+  <property name="mini-shop.testoutput.dir" value="${module.mini-shop.basedir}/out/test/MINI-SHOP"/>
+  
+  <path id="mini-shop.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="mini-shop.module.production.classpath">
+    <path refid="${module.jdk.classpath.mini-shop}"/>
+  </path>
+  
+  <path id="mini-shop.runtime.production.module.classpath">
+    <pathelement location="${mini-shop.output.dir}"/>
+  </path>
+  
+  <path id="mini-shop.module.classpath">
+    <path refid="${module.jdk.classpath.mini-shop}"/>
+    <pathelement location="${mini-shop.output.dir}"/>
+  </path>
+  
+  <path id="mini-shop.runtime.module.classpath">
+    <pathelement location="${mini-shop.testoutput.dir}"/>
+    <pathelement location="${mini-shop.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.mini-shop">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.mini-shop">
+    <patternset refid="excluded.from.module.mini-shop"/>
+  </patternset>
+  
+  
+  <target name="compile.module.mini-shop" depends="compile.module.mini-shop.production,compile.module.mini-shop.tests" description="Compile module MINI-SHOP"/>
+  
+  <target name="compile.module.mini-shop.production" depends="register.custom.compilers" description="Compile module MINI-SHOP; production classes"/>
+  
+  <target name="compile.module.mini-shop.tests" depends="register.custom.compilers,compile.module.mini-shop.production" description="compile module MINI-SHOP; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.mini-shop" description="cleanup module">
+    <delete dir="${mini-shop.output.dir}"/>
+    <delete dir="${mini-shop.testoutput.dir}"/>
+  </target>
+</project>

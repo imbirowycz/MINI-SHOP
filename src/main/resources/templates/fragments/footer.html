@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/templates/sss/aaa.css"
+          th:href="@{../sss/aaa.css}" media="screen"/>
+    <script src="/webjars/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="footer">
+    <footer class="footer">
+        <div class="container">
+            <p style="text-align: center">@Copyright 2017. Place sticky footer content here.</p>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
