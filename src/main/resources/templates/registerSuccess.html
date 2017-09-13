@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="fragments/headers::headers"></th:block>
+<!--<link rel="stylesheet" href="/webjars/bootstrap/3.3.1/css/bootstrap.min.css"/>-->
+<body>
+<th:block th:include="fragments/header::header"></th:block>
+<div class="container" >
+    <h1>Thanks for registration!</h1>
+    <a href="/" th:href="@{/}">Go to homepage</a>
+</div>
+
+<th:block th:include="fragments/footer::footer"></th:block>
+</body>
+</html>

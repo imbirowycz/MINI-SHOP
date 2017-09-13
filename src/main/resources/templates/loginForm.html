@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="fragments/headers::headers"></th:block>
+<!--<link rel="stylesheet" href="/webjars/bootstrap/3.3.1/css/bootstrap.min.css"/>-->
+<body>
+<!--<th:block th:include="fragments/header::header"></th:block>-->
+<div class="container" >
+    <div class="row">
+        <div class="col-lg-1 col-lg-offset-11">
+            <a href="/" th:href="@{/}"><button class="btn btn-default">Home</button></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-offset-4 col-lg-4">
+            <form class="form-signin"  action="processlogin" th:action="@{/processlogin}" method="post">
+                <h2 class="form-signin-heading" style="text-align: center">Zaloguj się</h2>
+                <input name="user" type="text" class="form-control" placeholder="Nazwa uzytkownika" /><br/>
+                <input name="pass" type="password" class="form-control" placeholder="Hasło" /><br/>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj</button>
+                <a href="/register"><h4>Zarejestruj</h4></a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<th:block th:include="fragments/footer::footer"></th:block>
+</body>
+</html>

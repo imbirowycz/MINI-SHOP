@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="fragments/headers::headers"></th:block>
+<!--<link rel="stylesheet" href="/webjars/bootstrap/3.3.1/css/bootstrap.min.css"/>-->
+<body>
+<div class="container" >
+    <div class="row">
+        <div class="col-lg-1 col-lg-offset-11">
+            <a href="/" th:href="@{/}"><button class="btn btn-default">Home</button></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <h1 class="form-signin-heading" style="text-align: center;">Registration form</h1>
+            <div style="color: black">
+                <form class="form-signin" action="/register" method="post" th:action="@{/register}" th:object="${user}">
+                    <p th:errors="*{email}">Name errors</p>
+                    <p><input class="form-control" th:field="*{firstName}" placeholder="First Name" /></p>
+                    <p><input class="form-control" th:field="*{lastName}" placeholder="Last Name" /></p>
+                    <p th:errors="*{email}">Email errors</p>
+                    <p><input class="form-control" th:field="*{email}" type="email" placeholder="Email" /></p>
+                    <p th:errors="*{password}">Password errors</p>
+                    <p><input class="form-control" th:field="*{password}" type="password" placeholder="Password" /></p>
+                    <p><button class="btn btn-lg btn-primary btn-block" type="submit">Zarejestruj</button></p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<th:block th:include="fragments/footer::footer"></th:block>
+</body>
+</html>
